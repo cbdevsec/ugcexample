@@ -16,7 +16,15 @@
     justify-content: space-around;
     position: fixed;
 }
-
+.navbar-mob {
+    display: flex;
+    justify-content: center;
+    background-color: #fdcee8;
+    align-items: center;
+    position: fixed;
+    z-index: 99999;
+    width: 100vw;
+}
 
 .home {
     background-color: #fdcee8;
@@ -25,6 +33,14 @@
     flex-direction: column;
     align-items: center;
 }
+.home-mobile {
+    background-color: #fdcee8;
+    display: flex;
+    max-width: 100vw;
+    flex-direction: column;
+    align-items: center;
+}
+
 .hero {
     display: flex;
     padding-top: 100px;
@@ -33,17 +49,42 @@
     align-items: center;
     justify-content: space-between;
 }
+.hero-mobile {
+    display: flex;
+    flex-direction: column;
+    padding-top: 0px;
+    height: 600px;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .hero-img img {
     width: 400px;
     border-radius: 1rem;
     padding: 10px;
 }
+.hero-img-mobile img{
+    width: 100vw;
+    border-radius: 1rem;
+    padding: 10px;
+    z-index: -999;
+}
+
 .hero-title {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
 }
+.hero-title-mobile {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    padding-top: 400px;
+    align-items: center;
+    justify-content: center;
+}
+
 .hero-title h1{
     font-size: 45px;
 }
@@ -59,6 +100,7 @@
     padding-left: 5px;
     font-size: 50px;
 }
+
 .videos {
     display: flex;
     width: 80vw;
@@ -66,14 +108,55 @@
     padding-bottom: 40px;
     padding-top: 40px;
 }
+.videos-mobile{
+    display: flex;
+    flex-direction: column;
+}
 .videos video {
     width: 400px;
 }
+.videos-mobile video {
+    width: 80vw;
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+
 .desc{
     display: flex;
     align-items: center;
     justify-content: center;
 }
+.desc-mobile{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 100vw;
+}
+
+.desc-img-mobile {
+    width: 60vw;
+    align-items: center;
+    justify-content: center;
+}
+.desc-img-mobile img {
+    width: 60vw;
+    padding-top: 40px;
+}
+
 .desc-text {
     width: 50vw;
+}
+.desc-text-mobile {
+    width: 70vw;
+    align-items: center;
+}
+
+.footer {
+    background-color: #fdcee8;
+    display: flex;
+    margin: 0;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
 }

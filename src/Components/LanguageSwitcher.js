@@ -1,4 +1,5 @@
 import { useNavigate, useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 function LanguageSwitcher() {
   const navigate = useNavigate();
@@ -12,8 +13,46 @@ function LanguageSwitcher() {
     }
   };
 
+  function useIsMobile(breakpoint = 640) {
+    const [isMobile, setIsMobile] = useState(
+      typeof window !== "undefined" ? window.innerWidth <= breakpoint : false
+    );
+
+    useEffect(() => {
+      const handleResize = () => {
+        setIsMobile(window.innerWidth <= breakpoint);
+      };
+
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+    }, [breakpoint]);
+
+    return isMobile;
+  }
+
+  const isMobile = useIsMobile();
+
   return (
-    <button
+    <>
+    {isMobile ? (
+      <button
+      onClick={switchLanguage}
+      style={{
+        position: "absolute",
+        top: "1rem",
+        right: "2rem",
+        padding: "0.5rem 1rem",
+        background: "#000",
+        color: "#fff",
+        border: "none",
+        borderRadius: "6px",
+        cursor: "pointer",
+      }}
+    >
+      {location.pathname === "/fr" ? "En" : "Fr"}
+    </button>
+    ) : (
+      <button
       onClick={switchLanguage}
       style={{
         position: "fixed",
@@ -29,6 +68,8 @@ function LanguageSwitcher() {
     >
       {location.pathname === "/fr" ? "🇬🇧 English" : "🇫🇷 Français"}
     </button>
+    )}
+    </>
   );
 }
 
